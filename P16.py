@@ -4,7 +4,7 @@
 What is the sum of the digits of the number 2**1000?
 '''
 def sum_of_digits(number):
-  result = list(map(lambda x: int(x), list(str(number))))
+  result = list(map(int, str(number)))
   return(sum(result))
 
 print(sum_of_digits(2**1000))
