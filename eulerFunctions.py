@@ -1,5 +1,5 @@
 '''
-isPrime: Function tests if a SMALL number is prime using Fermat primality test
+isPrime: Function tests if a SMALL number is prime
 @author: shay
 '''
 import math
