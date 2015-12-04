@@ -30,3 +30,24 @@ def isPrimeLarge(number):
     if pow(randomNumber, number-1, number)!=1:
         return False
   return True
+"""
+splicePlaces in Haskell:
+
+slice from to = (take (to - from)).(drop from)
+
+splitAts xs [] = []
+splitAts [] xs = []
+splitAts (n:ns) xs = take n xs : splitAts ns (drop n xs)
+
+Got this from my buddy, Dan! He's great! Hire him!
+"""
+
+#Splice places in Python:
+def splicePlaces( sliceSizes, listToSlice ):
+    slicedUpList = []
+    sliceBeginning = 0
+    for sliceSize in sliceSizes:
+        slicedUpList.append( listToSlice[ sliceBeginning : sliceBeginning + sliceSize  ] )
+        sliceBeginning += sliceSize
+    return slicedUpList
+
