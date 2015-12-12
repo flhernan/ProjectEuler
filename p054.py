@@ -37,31 +37,31 @@ def rank(hand):
     getSuit  = lambda pair: pair[1]
     suits    = list(map( getSuit, hand ))
 
-    getValue = lambda value: '23456789TJQKA'.index(value[0]) + 2
+    getValue = lambda pair : dict(zip('23456789TJQKA', range(2,15)))[pair[0]]
     values   = sorted(map( getValue, hand ))
 
     getValueCount = lambda value: values.count( value )
-    valueCounts = list(map( getValueCount, set(values) ))
+    valueCounts   = list(map( getValueCount, set(values) ))
 
     tieBreaker = sorted( zip( valueCounts, set(values) ) , reverse =True )
 
     tail = values[1:]
     head = values[:4]
     differences = list(zip(head,tail))
-    getDiff = lambda diff: (diff[1] - diff[0]) == 1
+    getDiff     = lambda diff: (diff[1] - diff[0]) == 1
     consecutive = all(map( getDiff, differences ))
 
     sameSuit = len(set(suits)) == 1
 
     royalFlush    = sameSuit and values == range(10,15)
-    straightFlush = consecutive and sameSuit
-    fourOfAKind   = 4 in valueCounts
-    fullHouse     = [2,3] in valueCounts
+    straightFlush = sameSuit and consecutive
+    fourOfAKind   = 4        in  valueCounts
+    fullHouse     = [2,3]    in  valueCounts
     flush         = sameSuit
     straight      = consecutive
-    threeOfAKind  = 3 in valueCounts
-    twoPairs      = [1,2,2] == sorted(valueCounts)
-    onePair       = 2 in valueCounts
+    threeOfAKind  = 3        in  valueCounts
+    twoPairs      = [1,2,2]  ==  sorted(valueCounts)
+    onePair       = 2        in  valueCounts
 
     if   royalFlush:    rank = 9
     elif straightFlush: rank = 8
@@ -81,16 +81,16 @@ def P1Win(games):
     for game in games:
         hand1 = game[:14].split()
         hand2 = game[15:].split()
-        rankNum1, tiebreaker1 = rank(hand1)
-        rankNum2, tiebreaker2 = rank(hand2)
+        rank1, tiebreaker1 = rank(hand1)
+        rank2, tiebreaker2 = rank(hand2)
 
-        if rankNum1 == rankNum2:
+        if rank1 == rank2:
             for i in range(0,len(tiebreaker1)):
                 if tiebreaker1[i] != tiebreaker2[i]:
                     P1Wins += (tiebreaker1[i] > tiebreaker2[i])
                     break
         else:
-            P1Wins+= (rankNum1 > rankNum2)
+            P1Wins+= (rank1 > rank2)
 
     return P1Wins
 

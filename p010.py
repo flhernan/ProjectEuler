@@ -11,11 +11,7 @@ from eulerFunctions import isPrime
 
 def sumPrimes(maxnum = 2000000):
 
-  primes = [2]
-  for i in range(3,maxnum,2):
-    if isPrime(i):
-      primes.append(i)
-
+  primes = [2] + list(filter(isPrime, range(3,maxnum,2)))
   return sum(primes)
 
 print(sumPrimes())

@@ -11,7 +11,7 @@ def getPrimeAtIndex(index):
 
   primes = [2]
   x = 3
-  while(len(primes) < index):
+  while len(primes) < index:
     if isPrime(x):
       primes.append(x)
     x += 2

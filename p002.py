@@ -7,14 +7,11 @@ By starting with 1 and 2, the first 10 terms will be:
 By considering the terms in the Fibonacci sequence whose values do not exceed four
 million, find the sum of the even-valued terms.
 '''
-
 fibonacci = [1, 1]
 
-while True:
-  nextFib = fibonacci[-1] + fibonacci [-2]
-  if nextFib > 4000000:
-    break
-  else:
-    fibonacci.append(fibonacci[-1] + fibonacci[-2])
+while fibonacci[-1] < 4000000:
+  fibonacci.append(fibonacci[-1] + fibonacci[-2])
+fibonacci.pop()
 
-print(sum(filter(lambda x: x % 2 == 0, fibonacci)))
+even = lambda num : num % 2 == 0
+print(sum(filter(even, fibonacci)))
