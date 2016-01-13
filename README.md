@@ -13,9 +13,9 @@ dynamic programming.
 <p>
 My favorite solutions are:
 <p>
-1. [54 - Poker hands](/p54.py)
+1. [54 - Poker hands](/p054.py)
 </br>
-2. [59 - XOR Decryption](/p59.py)
+2. [59 - XOR Decryption](/p059.py)
 </br>
-3. [58 - Spiral primes](/p58.py)
+3. [58 - Spiral primes](/p058.py)
 
