@@ -29,9 +29,8 @@ commonNum = list(filter(filterNum,con))
 Numerator = reduce(mul, list(map(lambda num: int(num[0][0]),commonNum)))
 Denominator = reduce(mul, list(map(lambda num: int(num[1][1]),commonNum)))
 
-# def lowestCommonTerms(numbers):
-#     Numerator =
-#     return reduce(lambda x,y: (x*y)/gcd(x,y), numbers, 1)
+def lcm(numbers):
+    return reduce(lambda x,y: (x*y)/gcd(x,y), numbers, 1)
 
 print(commonNum)
 print(lcm( (Numerator, Denominator) ))

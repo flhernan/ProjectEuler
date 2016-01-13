@@ -1,4 +1,4 @@
-'''
+"""
 Problem 10
 ----------
 The sum of the primes below 10 is
@@ -6,7 +6,7 @@ The sum of the primes below 10 is
 
 Find the sum of all the primes
 below two million.
-'''
+"""
 from eulerFunctions import isPrime
 
 def sumPrimes(maxnum = 2000000):

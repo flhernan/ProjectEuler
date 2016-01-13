@@ -1,4 +1,6 @@
-'''
+"""
+Problem 12
+----------
 The sequence of triangle numbers is generated
 by adding the natural numbers. So the 7th triangle
 number would be 1 + 2 + 3 + 4 + 5 + 6 + 7 = 28.
@@ -32,16 +34,8 @@ to have over five divisors.
 
 What is the value of the first triangle number
 to have over five hundred divisors?
-'''
-'''
-tri = []
-tri.append(triangleNum*2 + adder)
-sum(tri)
-for i in range 1,tri
-  if tri % i:
-    divisors++
+"""
 
-'''
 from math import sqrt
 def triangleDivisor(numofDivisors):
   triangleNum = 1
