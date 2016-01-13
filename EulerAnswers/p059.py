@@ -29,7 +29,7 @@ the ASCII values in the original text.
 """
 from itertools import permutations
 
-with open('p059_cipher.txt','r') as encryptedFile:
+with open('../EulerFiles/p059_cipher.txt','r') as encryptedFile:
     encrypted = encryptedFile.read().replace('\n','').split(',')
 
 letters = list(map(lambda a: ''.join(a),

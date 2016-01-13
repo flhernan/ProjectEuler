@@ -1,4 +1,4 @@
-with open("p022_names.txt", "r") as file:
+with open("../EulerFiles/p022_names.txt", "r") as file:
   unsorted_names = file.read().replace('\"','').split(',')
   names = list(enumerate(sorted(unsorted_names), start = 1))
 

@@ -1,4 +1,4 @@
-with open('p079_keylog.txt','r') as keylogFile:
+with open('../EulerFiles/p079_keylog.txt','r') as keylogFile:
     keylog = keylogFile.read().split('\n')
     keylog.pop()
 

@@ -76,8 +76,8 @@ def rank(hand):
 
     return [rank, tieBreaker]
 
-def p1Win(games):
-    p1Wins = 0
+def P1Win(games):
+    P1Wins = 0
     for game in games:
         hand1 = game[:14].split()
         hand2 = game[15:].split()
@@ -87,28 +87,14 @@ def p1Win(games):
         if rank1 == rank2:
             for i in range(0,len(tiebreaker1)):
                 if tiebreaker1[i] != tiebreaker2[i]:
-                    p1Wins = (tiebreaker1[i] > tiebreaker2[i])
+                    P1Wins += (tiebreaker1[i] > tiebreaker2[i])
                     break
         else:
-            p1Wins= (rank1 > rank2)
+            P1Wins+= (rank1 > rank2)
 
-        if p1Wins:
-            print ('Player 1')
-        else:
-            print ('Player 2')
+    return P1Wins
 
-n = int(input())
-poker_file = []
-while n > 0:
-    try:
-        game = input()
-        game = list(game)
-        game = ''.join(game)
-        poker_file.append(game)
-    except EOFError:
-        break
-    n = n-1
+with open("../EulerFiles/p054_poker.txt", "r") as poker_file:
+    games  = poker_file.read().split('\n')
 
-poker_file = ''.join(poker_file)
-games = poker_file.split('\n')
-p1Win(games)
+print(P1Win(games))

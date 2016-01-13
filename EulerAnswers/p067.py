@@ -14,7 +14,7 @@ Find the maximum total from top to bottom in p067_triangle.txt, a 15K text file
 containing a triangle with one-hundred rows.
 """
 
-with open("p067_triangle.txt", "r") as triangle_file:
+with open("../EulerFiles/p067_triangle.txt", "r") as triangle_file:
     triangle_string = triangle_file.read()
 
 process_data = lambda triangle_row: list(map( int, triangle_row.split() ))
@@ -35,4 +35,4 @@ for row in range( len(triangle) - 1 ):
     triangle[-2] =  top_row
     triangle.remove(bottom_row)
 
-print( "\n\tThe maximum path sum of the triangle is: %d" % triangle[0][0] )
+print( "The maximum path sum of the triangle is: %d" % triangle[0][0] )

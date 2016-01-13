@@ -13,9 +13,11 @@ dynamic programming.
 <p>
 My favorite solutions are:
 <p>
-1. [54 - Poker hands](/p054.py)
+1. [54 - Poker hands](/EulerFiles/p054.py)
 </br>
-2. [59 - XOR Decryption](/p059.py)
+2. [59 - XOR Decryption](/EulerFiles/p059.py)
 </br>
-3. [58 - Spiral primes](/p058.py)
+3. [58 - Spiral primes](/EulerFiles/p058.py)
+</br>
+4. [67 - Maximum Path Sum II](/EulerFiles/p067.py)
 

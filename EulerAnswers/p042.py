@@ -2,7 +2,7 @@ from itertools import takewhile
 from functools import reduce
 from operator import add
 
-with open('p042_words.txt','r') as wordFile:
+with open('../EulerFiles/p042_words.txt','r') as wordFile:
     words = wordFile.read().replace('\"','').split(',')
 
 maxWordLength = max(map( len, words))
