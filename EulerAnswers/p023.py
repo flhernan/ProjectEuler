@@ -7,8 +7,25 @@ As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest numb
 
 Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 """
-from eulerFunctions import isPrime
 from itertools import combinations_with_replacement
+from math import sqrt
+
+def isPrime(num):
+    if num == 2:
+        return True
+
+    if num % 2 == 0 or num < 2:
+        return False
+
+    i = 3
+    sqrtOfNum = sqrt(num)
+
+    while i <= sqrtOfNum:
+        if num % i == 0:
+            return False
+        i = i+2
+
+    return True
 
 def isAbundant(num):
     if isPrime(num):
@@ -19,17 +36,14 @@ def isAbundant(num):
     return sum_divisors > num
 
 abundant_nums = list(filter( isAbundant, range(12, 28123) ))
-print( "abundant_nums" )
 
 abundant_pairs = list(combinations_with_replacement( abundant_nums, r=2))
-print("abundant_pairs")
 
 sum_pairs = lambda pair: pair[0] + pair[1]
 all_abundant_sums = list(set(map( sum_pairs, abundant_pairs )))
 
 in_range = lambda num: num < 28123
 abundant_sums = list(filter( in_range, all_abundant_sums ))
-print( "abundant_sums" )
 
 not_abundant_sum = lambda num: num not in abundant_sums
 non_abundant_sums = list(filter( not_abundant_sum, range(1, 28123) ))

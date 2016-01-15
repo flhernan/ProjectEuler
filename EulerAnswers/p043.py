@@ -1,5 +1,22 @@
 from itertools import permutations
-from eulerFunctions import isPrime
+from math import sqrt
+
+def isPrime(num):
+    if num == 2:
+        return True
+
+    if num % 2 == 0 or num < 2:
+        return False
+
+    i = 3
+    sqrtOfNum = sqrt(num)
+
+    while i <= sqrtOfNum:
+        if num % i == 0:
+            return False
+        i = i+2
+
+    return True
 
 pandigitals = list(map( lambda string: ''.join(string),\
         list(permutations('0123456789', r=10))))

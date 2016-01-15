@@ -21,7 +21,31 @@ with side length 9 will be formed. If this process is continued, what is the
 side length of the square spiral for which the ratio of primes along both
 diagonals first falls below 10%?
 """
-from eulerFunctions import splicePlaces, isPrime
+from math import sqrt
+def splicePlaces( sliceSizes, listToSlice ):
+    slicedUpList = []
+    sliceBeginning = 0
+    for sliceSize in sliceSizes:
+        slicedUpList.append( listToSlice[ sliceBeginning : sliceBeginning + sliceSize  ] )
+        sliceBeginning += sliceSize
+    return slicedUpList
+
+def isPrime(num):
+    if num == 2:
+        return True
+
+    if num % 2 == 0 or num < 2:
+        return False
+
+    i = 3
+    sqrtOfNum = sqrt(num)
+
+    while i <= sqrtOfNum:
+        if num % i == 0:
+            return False
+        i = i+2
+
+    return True
 
 def diags( ring ):
     if len(ring) == 1:

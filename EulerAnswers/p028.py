@@ -1,4 +1,10 @@
-from eulerFunctions import splicePlaces
+def splicePlaces( sliceSizes, listToSlice ):
+    slicedUpList = []
+    sliceBeginning = 0
+    for sliceSize in sliceSizes:
+        slicedUpList.append( listToSlice[ sliceBeginning : sliceBeginning + sliceSize  ] )
+        sliceBeginning += sliceSize
+    return slicedUpList
 
 ringCount = 500
 index = range(8, ringCount*8 + 1, 8)

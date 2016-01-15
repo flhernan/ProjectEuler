@@ -7,9 +7,25 @@ to 10 without any remainder.
 What is the smallest positive number that is evenly divisible by all of the
 numbers from 1 to 20?
 """
-from eulerFunctions import isPrime
 from functools import reduce
 from operator import mul
+from math import sqrt
+
+def isPrime(num):
+    if num == 2:
+        return True
+
+    if num % 2 == 0 or num < 2:
+        return False
+
+    i = 3
+    sqrtOfNum = sqrt(num)
+
+    while i <= sqrtOfNum:
+        if num % i == 0:
+            return False
+        i = i+2
+    return True
 
 def primeFactors(n):
     if n == 1:

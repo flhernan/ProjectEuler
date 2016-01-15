@@ -12,6 +12,7 @@ triplet for which a + b + c = 1000.
 
 Find the product abc.
 """
+
 def PythagoreanProduct(num):
   for k in range(1,num-1):
     for j in range(1,k):

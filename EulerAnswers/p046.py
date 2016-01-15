@@ -1,6 +1,23 @@
-from eulerFunctions import isPrime
 from itertools import dropwhile
 from math import sqrt
+
+def isPrime(num):
+    if num == 2:
+        return True
+
+    if num % 2 == 0 or num < 2:
+        return False
+
+    i = 3
+    sqrtOfNum = sqrt(num)
+
+    while i <= sqrtOfNum:
+        if num % i == 0:
+            return False
+        i = i+2
+
+    return True
+
 isOdd = lambda num: num % 2 == 1
 isComposite = lambda num: not isPrime(num)
 oddComposites = list(filter(lambda num: isOdd(num) and isComposite(num), range(9,10000)))

@@ -1,5 +1,22 @@
-from eulerFunctions import isPrime
 from itertools import takewhile, dropwhile
+from math import sqrt
+
+def isPrime(num):
+    if num == 2:
+        return True
+
+    if num % 2 == 0 or num < 2:
+        return False
+
+    i = 3
+    sqrtOfNum = sqrt(num)
+
+    while i <= sqrtOfNum:
+        if num % i == 0:
+            return False
+        i = i+2
+
+    return True
 
 primes = list(filter(isPrime, range(1, 500000, 2) ))[:1000]
 

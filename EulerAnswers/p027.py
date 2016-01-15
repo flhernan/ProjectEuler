@@ -1,6 +1,23 @@
-from eulerFunctions import isPrime
 from itertools      import takewhile, product
 from sys            import maxsize
+from math import sqrt
+
+def isPrime(num):
+    if num == 2:
+        return True
+
+    if num % 2 == 0 or num < 2:
+        return False
+
+    i = 3
+    sqrtOfNum = sqrt(num)
+
+    while i <= sqrtOfNum:
+        if num % i == 0:
+            return False
+        i = i+2
+
+    return True
 
 a_numbers = list(range(-999, 1000))
 b_numbers = list(filter( isPrime, range(1000) ))

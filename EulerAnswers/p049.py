@@ -1,5 +1,22 @@
 from itertools import permutations, combinations_with_replacement, combinations
-from eulerFunctions import isPrime
+from math import sqrt
+
+def isPrime(num):
+    if num == 2:
+        return True
+
+    if num % 2 == 0 or num < 2:
+        return False
+
+    i = 3
+    sqrtOfNum = sqrt(num)
+
+    while i <= sqrtOfNum:
+        if num % i == 0:
+            return False
+        i = i+2
+
+    return True
 
 comboes = list(map(lambda comboes: ''.join(comboes), combinations_with_replacement('123456789', r=4)))
 
